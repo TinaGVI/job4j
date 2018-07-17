@@ -1,7 +1,24 @@
 package ru.job4j.calculate;
-
-public class Calculate {	
+/**
+* Calculator.
+*
+* @author TinaGVI (mailto:eleonor111@list.ru)
+* @since 17.07.18
+*/
+public class Calculate {
+/**
+* main.
+* @param args - args.
+*/	
 	public static void main (String[] args) {
 		System.out.println ("Hello World");
 	}
+	/**
+     * Method echo.
+     * @param name Your name.
+     * @return Echo plus your name.
+     */
+    public String echo(String name) {
+        return "Echo, echo, echo : " + name;
+    }
 }
