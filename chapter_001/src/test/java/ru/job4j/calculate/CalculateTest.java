@@ -8,18 +8,16 @@ import static org.junit.Assert.assertThat;
 * Test.
 *
 * @author TinaGVI (mailto:eleonor111@list.ru)
-* @since 17.07.2018
+* @since 18.07.2018
 */
+
 public class CalculateTest {
-/**
-* Test echo.
-*/ @Test
-public void whenTakeNameThenTreeEchoPlusName() {
-    String input = "Tina";
-    String expect = "Echo, echo, echo : Tina"; 
-    Calculate calc = new Calculate();
-    String result = calc.echo(input);
-    assertThat(result, is(expect));
-}
- 
+    @Test
+    public void whenAddOnePlusOneThenTwo() {
+        Calculate calc = new Calculate();
+        calc.add(1D, 1D);
+        double result = calc.getResult();
+        double expected = 2D;
+        assertThat(result, is(expected));
+    }
 }
