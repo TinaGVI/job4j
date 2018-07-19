@@ -1,15 +1,14 @@
 package ru.job4j.max;
+
+import org.junit.Test;
+import static org.hamcrest.core.Is.is;
+import static org.junit.Assert.assertThat;
 /**
- * Max из двух чисел Test.
+ * Max из двух и трех чисел Test.
  *
  * @author TinaGVI (mailto:eleonor111@list.ru)
- * @since 19.07.2018
+ * @since 20.07.2018
  */
-        import org.junit.Test;
-        import static org.hamcrest.core.Is.is;
-        import static org.junit.Assert.assertThat;
-
-
 public class MaxTest {
     @Test
     public void whenFirstLessSecond() {
