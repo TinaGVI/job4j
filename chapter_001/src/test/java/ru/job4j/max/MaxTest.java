@@ -5,9 +5,9 @@ package ru.job4j.max;
  * @author TinaGVI (mailto:eleonor111@list.ru)
  * @since 19.07.2018
  */
-import org.junit.Test;
-import static org.hamcrest.core.Is.is;
-import static org.junit.Assert.assertThat;
+        import org.junit.Test;
+        import static org.hamcrest.core.Is.is;
+        import static org.junit.Assert.assertThat;
 
 
 public class MaxTest {
@@ -16,5 +16,11 @@ public class MaxTest {
         Max maxim = new Max();
         int result = maxim.max(1, 2);
         assertThat(result, is(2));
+    }
+    @Test
+    public void whenSecondMoreThanFirtsAndThree() {
+        Max maxim = new Max();
+        int result = maxim.max(5, 8, 3);
+        assertThat(result, is(8));
     }
 }
