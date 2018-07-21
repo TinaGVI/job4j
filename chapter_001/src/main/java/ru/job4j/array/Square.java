@@ -7,13 +7,14 @@ package ru.job4j.array;
 public class Square {
     /**
      * Заполняем массив степенями чисел.
+     *
      * @param bound длина массива.
      * @return заполненый массив.
      */
     public int[] calculate(int bound) {
         int[] rst = new int[bound];
-        for (int i = 1; i <= bound; i++){
-            rst [i - 1] = i * i;
+        for (int i = 1; i <= bound; i++) {
+            rst[i - 1] = i * i;
         }
         return rst;
     }
