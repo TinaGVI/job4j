@@ -18,9 +18,8 @@ public class Factorial {
             factorial *= i;
             }
         if (n == 0) {
-            return 1;
-        } else {
-            return factorial;
+            factorial = 1;
         }
+        return factorial;
     }
 }
