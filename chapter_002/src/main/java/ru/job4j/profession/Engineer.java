@@ -8,9 +8,4 @@ public class Engineer extends Profession {
     public House bild() {
         return new House();
     }
-
-    class House {
-
-    }
-
 }

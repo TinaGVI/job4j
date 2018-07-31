@@ -9,12 +9,4 @@ public class Doctor extends Profession {
         return new Diagnose();
 
     }
-
-    class Pacient {
-
-    }
-
-    class Diagnose {
-
-    }
 }
