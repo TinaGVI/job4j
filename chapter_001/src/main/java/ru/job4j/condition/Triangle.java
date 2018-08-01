@@ -1,4 +1,5 @@
 package ru.job4j.condition;
+
 /**
  * Вычисление площади треугольника.
  *
@@ -18,9 +19,9 @@ public class Triangle {
 
     /**
      * Метод вычисления полупериметра по длинам сторон.
-     *
+     * <p>
      * Формула.
-     *
+     * <p>
      * (ab + ac + bc) / 2
      *
      * @param ab расстояние между точками a b
@@ -37,7 +38,7 @@ public class Triangle {
      *
      * @return Вернуть прощадь, если треугольник существует или -1, если треугольника нет.
      */
-    public  double area() {
+    public double area() {
         double rsl = -1;
         double ab = this.a.distanceTo(this.b);
         double ac = this.a.distanceTo(this.c);
@@ -51,7 +52,7 @@ public class Triangle {
 
     /**
      * Метод проверяет можно ли построить треугольник с такими длинами сторон.
-     *
+     * <p>
      * Подумайте какое надо написать условие, чтобы определить можно ли построить треугольник.
      *
      * @param ab Длина от точки a b.

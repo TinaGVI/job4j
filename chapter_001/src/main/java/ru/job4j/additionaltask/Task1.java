@@ -1,4 +1,4 @@
-package ru.job4j.additionalTask;
+package ru.job4j.additionaltask;
 
 /**
  * @author TinaGVI (mailto:eleonor111@list.ru)
