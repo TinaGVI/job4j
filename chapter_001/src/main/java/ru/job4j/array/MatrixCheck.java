@@ -18,8 +18,11 @@ public class MatrixCheck {
                 result = false;
                 break;
             }
+            if (data[0][data.length - 1] != data[i][data.length - 1 - i]) {
+                result = false;
+                break;
+            }
         }
         return result;
     }
-
 }

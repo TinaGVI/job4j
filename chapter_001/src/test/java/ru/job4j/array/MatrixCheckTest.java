@@ -16,12 +16,12 @@ public class MatrixCheckTest {
     public void whenDataMonoByTrueThenTrue() {
         MatrixCheck check = new MatrixCheck();
         boolean[][] input = new boolean[][]{
-                {true, true, true},
+                {true, true, false},
                 {false, true, true},
                 {true, false, true}
         };
         boolean result = check.mono(input);
-        assertThat(result, is(true));
+        assertThat(result, is(false));
     }
 
     @Test
@@ -31,6 +31,18 @@ public class MatrixCheckTest {
                 {true, true, false},
                 {false, false, true},
                 {true, false, true}
+        };
+        boolean result = check.mono(input);
+        assertThat(result, is(false));
+    }
+
+    @Test
+    public void whenDataNotMono4() {
+        MatrixCheck check = new MatrixCheck();
+        boolean[][] input = new boolean[][]{
+                {true, true, false, true},
+                {false, false, true, true},
+                {true, false, true, false}
         };
         boolean result = check.mono(input);
         assertThat(result, is(false));
