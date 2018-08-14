@@ -2,9 +2,11 @@ package ru.job4j.tracker;
 
 import org.junit.Test;
 
+import static org.hamcrest.collection.IsArrayContainingInAnyOrder.arrayContainingInAnyOrder;
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertArrayEquals;
 import static org.junit.Assert.assertThat;
+
 
 /**
  * @author TinaGVI
@@ -17,9 +19,7 @@ public class TrackerTest {
         Tracker tracker = new Tracker();
         Item item = new Item("test1", "testDescription", 123L);
         tracker.add(item);
-        item = new Item("test7", "testDescription1", 128L);
-        tracker.add(item);
-        assertThat(tracker.findAll()[1], is(item));
+        assertThat(tracker.findAll()[0], is(item));
     }
 
     @Test
@@ -36,14 +36,16 @@ public class TrackerTest {
     @Test
     public void deleteTest() {
         Tracker tracker = new Tracker();
-        Item item = new Item("item2", "desc2", 13L);
-        tracker.add(item);
-        item = new Item("item3", "desc3", 14);
-        tracker.add(item);
-        Item expected = new Item("item3", "desc3", 14);
-        tracker.delete(item.getId());
-        expected = null;
-        assertThat(tracker.findAll()[1], is(expected));
+        Item[] items = {
+                new Item("item2", "desc2", 13L),
+                new Item("item3", "desc3", 14)
+        };
+        tracker.add(items[0]);
+        tracker.add(items[1]);
+        tracker.delete(items[1].getId());
+        Item[] actual = tracker.findAll();
+        items[0].setId(actual[0].getId());
+        assertThat(actual, arrayContainingInAnyOrder(items[0]));
     }
 
     @Test

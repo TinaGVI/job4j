@@ -1,6 +1,8 @@
 package ru.job4j.tracker;
 
+import java.util.Arrays;
 import java.util.Date;
+import java.lang.*;
 
 /**
  * @author TinaGVI
@@ -64,7 +66,8 @@ public class Tracker {
     public void delete(String id) {
         for (int i = 0; i < position; i++) {
             if (id.equals(items[i].getId())) {
-                this.items[i] = null;
+                System.arraycopy(this.items, i + 1, this.items, i, position - i);
+                --position;
                 break;
             }
         }
@@ -77,11 +80,10 @@ public class Tracker {
      * @return список заявок.
      */
     public Item[] findAll() {
-        Item[] result = new Item[position];
-        for (int i = 0; i < position; i++) {
-            result[i] = items[i];
+        if (position == 0) {
+            return new Item[]{};
         }
-        return result;
+        return Arrays.copyOf(this.items, position);
     }
 
     /**
