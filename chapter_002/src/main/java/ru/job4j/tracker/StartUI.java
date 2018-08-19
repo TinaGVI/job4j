@@ -2,6 +2,10 @@ package ru.job4j.tracker;
 
 import java.util.Arrays;
 
+/**
+ * @author TinaGVI
+ * @since 19.08.2018
+ */
 public class StartUI {
     /**
      * Константы меню.
@@ -22,9 +26,11 @@ public class StartUI {
      * Хранилище заявок.
      */
     private final Tracker tracker;
+
     /**
      * Конструтор инициализирующий поля.
-     * @param input ввод данных.
+     *
+     * @param input   ввод данных.
      * @param tracker хранилище заявок.
      */
     public StartUI(Input input, Tracker tracker) {
@@ -64,11 +70,17 @@ public class StartUI {
         }
     }
 
+    /**
+     * Метод реализует вывод всех заявок.
+     */
     private void findAll() {
         System.out.println("------------ Вывод всех заявок --------------");
         System.out.println(this.tracker.findAll());
     }
 
+    /**
+     * Метод реализует редактирование заявки в хранилище.
+     */
     private void replace() {
         System.out.println("------------ Редактирование заявки --------------");
         String id = this.input.ask("Введите id заявки, которую хотите изменить:");
@@ -79,6 +91,9 @@ public class StartUI {
         System.out.println("------------ Заявка с изменина -----------");
     }
 
+    /**
+     * Метод реализует удаление заявки в хранилище.
+     */
     private void delete() {
         System.out.println("------------ Удаление заявки --------------");
         String id = this.input.ask("Введите id заявки, которую хотите удалить:");
@@ -86,6 +101,9 @@ public class StartUI {
         System.out.println("------------ Заявка с удалена -----------");
     }
 
+    /**
+     * Метод реализует поиск заявки по id в хранилище.
+     */
     private void findById() {
         System.out.println("------------ Поиск заявки по id --------------");
         String id = this.input.ask("Введите id заявки, которую хотите найти:");
@@ -93,6 +111,9 @@ public class StartUI {
         System.out.println("------------ Найдена заявка по id " + item + "  -----------");
     }
 
+    /**
+     * Метод реализует поиск заявки по имени в хранилище.
+     */
     private void findByName() {
         System.out.println("------------ Поиск заявки по имени --------------");
         String id = this.input.ask("Введите имя заявки, которую хотите найти:");
@@ -112,6 +133,9 @@ public class StartUI {
         System.out.println("------------ Новая заявка с getId : " + item.getId() + "-----------");
     }
 
+    /**
+     * Метод реализует показ меню.
+     */
     private void showMenu() {
         System.out.println("Меню.");
         System.out.println("Выберети 0 - добавить новую заявку.");
@@ -125,9 +149,11 @@ public class StartUI {
 
     /**
      * Запускт программы.
+     *
      * @param args
      */
     public static void main(String[] args) {
+
         new StartUI(new ConsoleInput(), new Tracker()).init();
     }
 }
