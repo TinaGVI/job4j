@@ -28,6 +28,14 @@ public class Item {
         this.id = id;
     }
 
+    public String getDescription() {
+        return this.description;
+    }
+
+    public void setDescription(String id) {
+        this.description = description;
+    }
+
     public String getName() {
         return this.name;
     }
@@ -56,11 +64,8 @@ public class Item {
 
     @Override
     public String toString() {
-        return "Item{"
-                + "id='" + id + '\''
-                + ", name='" + name + '\''
-                + ", description='" + description + '\''
-                + ", value=" + value
-                + '}';
+        return "ID: " + id + "; "
+                + "Name: " + name + "; "
+                + "Description: " + description;
     }
 }

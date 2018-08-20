@@ -75,7 +75,9 @@ public class StartUI {
      */
     private void findAll() {
         System.out.println("------------ Вывод всех заявок --------------");
-        System.out.println(this.tracker.findAll());
+        for (Item item : tracker.findAll()) {
+            System.out.println(item);
+        }
     }
 
     /**
@@ -144,7 +146,9 @@ public class StartUI {
         System.out.println("Выберети 3 - удалить заявку.");
         System.out.println("Выберети 4 - найти заявку по id.");
         System.out.println("Выберети 5 - найти заявку по имени.");
-        System.out.println("Выберети 6 - показать все заявки.");
+        System.out.println("Выберети 6 - выйти из меню.");
+        System.out.println("Выберети: ");
+
     }
 
     /**
