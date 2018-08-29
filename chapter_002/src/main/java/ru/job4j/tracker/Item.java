@@ -4,6 +4,8 @@ import java.util.Objects;
 
 
 /**
+ * Хранение всех заявок.
+ *
  * @author TinaGVI
  * @since 10.08.2018
  */
@@ -11,12 +13,12 @@ public class Item {
     private String id;
     private String name;
     private String description;
-    private long value;
+    // private long value;
 
-    Item(String name, String description, long value) {
+    Item(String name, String description) {
         this.name = name;
         this.description = description;
-        this.value = value;
+        //  this.value = value;
 
     }
 

@@ -8,5 +8,4 @@ public interface Input {
      * @return String Ответ пользователя.
      */
     String ask(String question);
-
 }

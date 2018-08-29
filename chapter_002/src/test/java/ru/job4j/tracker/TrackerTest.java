@@ -17,7 +17,7 @@ public class TrackerTest {
     @Test
     public void addTest() {
         Tracker tracker = new Tracker();
-        Item item = new Item("test1", "testDescription", 123L);
+        Item item = new Item("test1", "testDescription");
         tracker.add(item);
         assertThat(tracker.findAll()[0], is(item));
     }
@@ -25,9 +25,9 @@ public class TrackerTest {
     @Test
     public void replaceTest() {
         Tracker tracker = new Tracker();
-        Item previous = new Item("test1", "testDescription", 123L);
+        Item previous = new Item("test1", "testDescription");
         tracker.add(previous);
-        Item next = new Item("test2", "testDescription2", 1234L);
+        Item next = new Item("test2", "testDescription2");
         next.setId(previous.getId());
         tracker.replace(previous.getId(), next);
         assertThat(tracker.findById(previous.getId()).getName(), is("test2"));
@@ -37,8 +37,8 @@ public class TrackerTest {
     public void deleteTest() {
         Tracker tracker = new Tracker();
         Item[] items = {
-                new Item("item2", "desc2", 13L),
-                new Item("item3", "desc3", 14)
+                new Item("item2", "desc2"),
+                new Item("item3", "desc3")
         };
         tracker.add(items[0]);
         tracker.add(items[1]);
@@ -51,11 +51,11 @@ public class TrackerTest {
     @Test
     public void findAllTest() {
         Tracker tracker = new Tracker();
-        Item item = new Item("item4", "desc4", 15);
+        Item item = new Item("item4", "desc4");
         tracker.add(item);
-        item = new Item("item5", "desc6", 16);
+        item = new Item("item5", "desc6");
         tracker.add(item);
-        Item expected = new Item("item5", "desc6", 16);
+        Item expected = new Item("item5", "desc6");
         expected.setId(item.getId());
         assertThat(tracker.findAll()[1], is(expected));
 
@@ -65,15 +65,15 @@ public class TrackerTest {
     @Test
     public void findByName() {
         Tracker tracker = new Tracker();
-        Item item1 = new Item("item20", "desc19", 25); //item1 == item2
+        Item item1 = new Item("item20", "desc19"); //item1 == item2
         tracker.add(item1);
-        Item item2 = new Item("item20", "desc21", 26);
+        Item item2 = new Item("item20", "desc21");
         tracker.add(item2);
-        Item item3 = new Item("item22", "desc23", 27);
+        Item item3 = new Item("item22", "desc23");
         tracker.add(item3);
-        Item expected1 = new Item("item20", "desc19", 25);
+        Item expected1 = new Item("item20", "desc19");
         expected1.setId(item1.getId());
-        Item expected2 = new Item("item20", "desc21", 26);
+        Item expected2 = new Item("item20", "desc21");
         expected2.setId(item2.getId());
         Item[] expected = new Item[]{expected1, expected2};
         assertArrayEquals(tracker.findByName("item20"), expected);
@@ -83,11 +83,11 @@ public class TrackerTest {
     @Test
     public void findById() {
         Tracker tracker = new Tracker();
-        Item item = new Item("item12", "desc13", 23);
+        Item item = new Item("item12", "desc13");
         tracker.add(item);
-        item = new Item("item14", "desc15", 24);
+        item = new Item("item14", "desc15");
         tracker.add(item);
-        Item expected = new Item("item14", "desc15", 24);
+        Item expected = new Item("item14", "desc15");
         expected.setId(item.getId());
         assertThat(tracker.findById(item.getId()), is(expected));
     }

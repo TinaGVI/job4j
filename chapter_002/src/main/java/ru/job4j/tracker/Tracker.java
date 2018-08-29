@@ -48,14 +48,17 @@ public class Tracker {
      * @param id   айди заявки на редактирование.
      * @param item отредактированная заявка.
      */
-    public void replace(String id, Item item) {
+    public boolean replace(String id, Item item) {
+        boolean result = false;
         for (int i = 0; i < position; i++) {
             if (id.equals(items[i].getId())) {
                 item.setId(id);
                 this.items[i] = item;
+                result = true;
                 break;
             }
         }
+        return result;
     }
 
     /**
@@ -63,14 +66,17 @@ public class Tracker {
      *
      * @param id айди заявки на удаление.
      */
-    public void delete(String id) {
+    public boolean delete(String id) {
+        boolean result = false;
         for (int i = 0; i < position; i++) {
             if (id.equals(items[i].getId())) {
                 System.arraycopy(this.items, i + 1, this.items, i, position - i);
                 --position;
+                result = true;
                 break;
             }
         }
+        return result;
     }
 
 
