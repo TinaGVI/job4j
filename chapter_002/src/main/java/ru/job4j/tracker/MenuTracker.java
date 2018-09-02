@@ -13,13 +13,23 @@ public class MenuTracker {
     private Input input;
     private Tracker tracker;
     private List<UserAction> actions = new ArrayList<>();
+    private int[] range;
 
     public MenuTracker(Input input, Tracker tracker) {
         this.input = input;
         this.tracker = tracker;
     }
 
-    public int getActionsLentgh() {
+    public int[] getRange() {
+        return range;
+    }
+
+    {
+        fillActions();
+        fillRange();
+    }
+
+    public int getActionsLength() {
         return this.actions.size();
     }
 
@@ -34,8 +44,16 @@ public class MenuTracker {
         this.actions.add(new FindItemById(4, " - Найти заявку по id"));
         this.actions.add(new FindItemsByName(5, " - Найти заявку по имени"));
         this.actions.add(new ExitProgram(6, " - Выйти из меню"));
+
     }
 
+    public void fillRange() {
+        range = new int[getActionsLength()];
+        int i = 0;
+        for (UserAction act : this.actions) {
+            range[i++] = act.key();
+        }
+    }
     /**
      * Метод в зависимости от указанного ключа, выполняет соотвествующие действие.
      *

@@ -11,11 +11,8 @@ public class StartUI {
     /**
      * Получение данных от пользователя.
      */
+    //private int[] range = new int[] {};
     private final Input input;
-
-    /**
-     * Хранилище заявок.
-     */
     private final Tracker tracker;
 
     /**
@@ -31,15 +28,11 @@ public class StartUI {
 
     public void init() {
         MenuTracker menu = new MenuTracker(this.input, this.tracker);
-        menu.fillActions();
-        List<Integer> range = new ArrayList<>();
-        for (int i = 0; i < menu.getActionsLentgh(); i++) {
-            range.add(i);
-        }
+
         int key;
         do {
             menu.show();
-            key = Integer.valueOf(input.ask("Выберите пункт меню:"));
+            key = Integer.valueOf(input.ask("Выберите пункт меню:", menu.getRange()));
             menu.select(key);
         } while (key != 6);
     }
@@ -52,6 +45,6 @@ public class StartUI {
      */
     public static void main(String[] args) {
 
-        new StartUI(new ConsoleInput(), new Tracker()).init();
+        new StartUI(new  ValidateInput(), new Tracker()).init();
     }
 }
