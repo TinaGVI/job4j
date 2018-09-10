@@ -1,4 +1,6 @@
-package ru.job4j.tracker;
+package ru.job4j.tracker.input;
+
+import ru.job4j.tracker.MenuOutException;
 
 import java.util.Scanner;
 
@@ -16,8 +18,8 @@ public class ConsoleInput implements Input {
         return scanner.nextLine();
     }
 
-    public int ask(String questions, int[] range) throws MenuOutException, NumberFormatException {
-        int key = Integer.valueOf(this.ask(questions));
+    public int ask(String question, int[] range) throws MenuOutException, NumberFormatException {
+        int key = Integer.valueOf(this.ask(question));
         boolean exist = false;
         for (int value : range) {
             if (value == key) {

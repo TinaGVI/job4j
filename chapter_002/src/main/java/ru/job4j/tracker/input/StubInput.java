@@ -1,4 +1,6 @@
-package ru.job4j.tracker;
+package ru.job4j.tracker.input;
+
+import ru.job4j.tracker.MenuOutException;
 
 /**
  * @author TinaGVI
@@ -28,6 +30,18 @@ public class StubInput implements Input {
     }
 
     public int ask(String question, int[] range) {
-        throw new UnsupportedOperationException("Unsupported Operation Exception");
+        int key = Integer.valueOf(this.ask(question));
+        boolean exist = false;
+        for (int value : range) {
+            if (value == key) {
+                exist = true;
+                break;
+            }
+        }
+        if (exist) {
+            return key;
+        } else {
+            throw new MenuOutException("Выберите правильный пункт меню.");
+        }
     }
 }

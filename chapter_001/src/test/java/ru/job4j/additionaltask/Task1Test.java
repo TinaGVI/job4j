@@ -14,8 +14,8 @@ public class Task1Test {
     public void whenThirdArrayUnitFromTheFirstAndSecondArray() {
         Task1 task = new Task1();
         int[] first = new int[]{1, 2, 5, 10};
-        int[] second = new int[]{3, 4, 7, 9, 12};
+        int[] second = new int[]{2, 3, 4, 7, 9, 12};
         int[] result = task.unite(first, second);
-        assertThat(result, is(new int[]{1, 2, 3, 4, 5, 7, 9, 10, 12}));
+        assertThat(result, is(new int[]{1, 2, 2, 3, 4, 5, 7, 9, 10, 12}));
     }
 }

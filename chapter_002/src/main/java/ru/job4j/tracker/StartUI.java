@@ -1,7 +1,10 @@
 package ru.job4j.tracker;
 
-import java.util.ArrayList;
-import java.util.List;
+
+import ru.job4j.tracker.actions.MenuTracker;
+import ru.job4j.tracker.input.ConsoleInput;
+import ru.job4j.tracker.input.Input;
+import ru.job4j.tracker.stogare.Tracker;
 
 /**
  * @author TinaGVI
@@ -13,6 +16,9 @@ public class StartUI {
      */
     //private int[] range = new int[] {};
     private final Input input;
+    /**
+     *
+     */
     private final Tracker tracker;
 
     /**
@@ -26,6 +32,9 @@ public class StartUI {
         this.tracker = tracker;
     }
 
+    /**
+     *
+     */
     public void init() {
         MenuTracker menu = new MenuTracker(this.input, this.tracker);
 
@@ -44,7 +53,11 @@ public class StartUI {
      * @param args
      */
     public static void main(String[] args) {
-
-        new StartUI(new  ValidateInput(), new Tracker()).init();
+        new StartUI(
+                new ValidateInput(
+                        new ConsoleInput()
+                ),
+                new Tracker()
+        ).init();
     }
 }
