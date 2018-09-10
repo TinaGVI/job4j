@@ -1,4 +1,4 @@
-package ru.job4j.tracker;
+package ru.job4j.tracker.model;
 
 import java.util.Objects;
 
@@ -13,12 +13,10 @@ public class Item {
     private String id;
     private String name;
     private String description;
-    // private long value;
 
-    Item(String name, String description) {
+    public Item(String name, String description) {
         this.name = name;
         this.description = description;
-        //  this.value = value;
 
     }
 

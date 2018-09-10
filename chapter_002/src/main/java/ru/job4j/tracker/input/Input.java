@@ -1,4 +1,4 @@
-package ru.job4j.tracker.imput;
+package ru.job4j.tracker.input;
 
 public interface Input {
     /**
