@@ -10,18 +10,9 @@ import ru.job4j.tracker.model.Item;
  * @author TinaGVI
  * @since 29.08.2018
  */
-public class FindItemById implements UserAction {
-    private final int find;
-    private final String info;
-
-    public FindItemById(int key, String info) {
-        find = key;
-        this.info = info;
-    }
-
-    @Override
-    public int key() {
-        return find;
+public class FindItemById extends BaseAction {
+    public FindItemById(int key, String name) {
+        super(key, name);
     }
 
     @Override
@@ -30,10 +21,5 @@ public class FindItemById implements UserAction {
         String id = input.ask("Введите id заявки, которую хотите найти:");
         Item item = tracker.findById(id);
         System.out.println("------------ Найдена заявка по id " + item + "  -----------");
-    }
-
-    @Override
-    public String info() {
-        return String.format("%d.%s", key(), this.info);
     }
 }

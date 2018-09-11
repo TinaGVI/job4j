@@ -8,21 +8,12 @@ import ru.job4j.tracker.model.Item;
  * Показывает основные поля в консоли.
  *
  * @author TinaGVI
- * @since 29.08.2018
+ * @since 11.09.18
  */
-public class ShowItems implements UserAction {
+public class ShowItems extends BaseAction {
 
-    private final int show;
-    private final String info;
-
-    public ShowItems(int key, String info) {
-        show = key;
-        this.info = info;
-    }
-
-    @Override
-    public int key() {
-        return show;
+    public ShowItems(int key, String name) {
+        super(key, name);
     }
 
     @Override
@@ -31,10 +22,5 @@ public class ShowItems implements UserAction {
         for (Item item : tracker.findAll()) {
             System.out.println(item);
         }
-    }
-
-    @Override
-    public String info() {
-        return String.format("%d.%s", key(), this.info);
     }
 }

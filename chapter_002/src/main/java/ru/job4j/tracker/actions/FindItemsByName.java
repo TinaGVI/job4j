@@ -10,20 +10,11 @@ import java.util.Arrays;
  * Класс поиска заявки по имени.
  *
  * @author TinaGVI
- * @since 29.08.2018
+ * @since 11.09.18
  */
-public class FindItemsByName implements UserAction {
-    private final int find;
-    private final String info;
-
-    public FindItemsByName(int key, String info) {
-        find = key;
-        this.info = info;
-    }
-
-    @Override
-    public int key() {
-        return find;
+public class FindItemsByName extends BaseAction {
+    public FindItemsByName(int key, String name) {
+        super(key, name);
     }
 
     @Override
@@ -32,10 +23,5 @@ public class FindItemsByName implements UserAction {
         String id = input.ask("Введите имя заявки, которую хотите найти:");
         Item[] items = tracker.findByName(id);
         System.out.println("------------ Найдена заявка по id  " + Arrays.toString(items) + " -----------");
-    }
-
-    @Override
-    public String info() {
-        return String.format("%d.%s", key(), this.info);
     }
 }

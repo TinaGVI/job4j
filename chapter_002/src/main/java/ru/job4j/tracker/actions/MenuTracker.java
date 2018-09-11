@@ -1,17 +1,17 @@
 package ru.job4j.tracker.actions;
 
 
-import ru.job4j.tracker.stogare.Tracker;
-import ru.job4j.tracker.input.Input;
-import ru.job4j.tracker.model.Item;
+        import ru.job4j.tracker.stogare.Tracker;
+        import ru.job4j.tracker.input.Input;
+        import ru.job4j.tracker.model.Item;
 
-import java.util.ArrayList;
-import java.lang.String;
-import java.util.List;
+        import java.util.ArrayList;
+        import java.lang.String;
+        import java.util.List;
 
 /**
  * @author TinaGVI
- * @since 29.08.2018
+ * @since 11.09.18
  */
 public class MenuTracker {
     private Input input;
@@ -58,6 +58,7 @@ public class MenuTracker {
             range[i++] = act.key();
         }
     }
+
     /**
      * Метод в зависимости от указанного ключа, выполняет соотвествующие действие.
      *
@@ -83,18 +84,9 @@ public class MenuTracker {
     /**
      * Класс удаления заявки.
      */
-    public class DeleteItem implements UserAction {
-        private final int delete;
-        private final String info;
-
-        public DeleteItem(int key, String info) {
-            delete = key;
-            this.info = info;
-        }
-
-        @Override
-        public int key() {
-            return delete;
+    public class DeleteItem extends BaseAction {
+        public DeleteItem(int key, String name) {
+            super(key, name);
         }
 
         @Override
@@ -104,29 +96,15 @@ public class MenuTracker {
             tracker.delete(id);
             System.out.println("------------ Заявка с удалена -----------");
         }
-
-        @Override
-        public String info() {
-            return String.format("%d.%s", key(), this.info);
-        }
     }
 
     /**
      * Класс редактирования заявки.
      */
 
-    public class EditItem implements UserAction {
-        private final int edit;
-        private final String info;
-
-        public EditItem(int key, String info) {
-            edit = key;
-            this.info = info;
-        }
-
-        @Override
-        public int key() {
-            return edit;
+    public class EditItem extends BaseAction {
+        public EditItem(int key, String name) {
+            super(key, name);
         }
 
         @Override
@@ -139,39 +117,20 @@ public class MenuTracker {
             tracker.replace(id, item);
             System.out.println("------------ Заявка с изменина -----------");
         }
-
-        @Override
-        public String info() {
-            return String.format("%d.%s", key(), this.info);
-        }
     }
 
     /**
      * Класс выхода из программы.
      */
 
-    public class ExitProgram implements UserAction {
-        private final int exit;
-        private final String info;
-
-        public ExitProgram(int key, String info) {
-            exit = key;
-            this.info = info;
-        }
-
-        @Override
-        public int key() {
-            return exit;
+    public class ExitProgram extends BaseAction {
+        public ExitProgram(int key, String name) {
+            super(key, name);
         }
 
         @Override
         public void execute(Input input, Tracker tracker) {
             System.out.println("------------ Выход из меню --------------");
-        }
-
-        @Override
-        public String info() {
-            return String.format("%d.%s", key(), this.info);
         }
     }
 }

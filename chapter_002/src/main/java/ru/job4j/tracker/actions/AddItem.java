@@ -8,20 +8,12 @@ import ru.job4j.tracker.model.Item;
  * Класс добавления заявок.
  *
  * @author TinaGVI
- * @since 29.08.2018
+ * @since 11.09.18
  */
-public class AddItem implements UserAction {
-    private final int add;
-    private final String info;
+public class AddItem extends BaseAction {
 
-    public AddItem(int key, String info) {
-        add = key;
-        this.info = info;
-    }
-
-    @Override
-    public int key() {
-        return add;
+    public AddItem(int key, String name) {
+        super(key, name);
     }
 
     @Override
@@ -34,11 +26,6 @@ public class AddItem implements UserAction {
         System.out.println("------------ Новое Id заявки : " + item.getId());
         System.out.println("------------ Новое имя заявки : " + item.getName());
         System.out.println("------------ Новое описание заявки : " + item.getDescription());
-    }
-
-    @Override
-    public String info() {
-        return String.format("%d.%s", key(), this.info);
     }
 }
 

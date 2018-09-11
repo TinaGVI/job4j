@@ -9,13 +9,13 @@ import ru.job4j.tracker.stogare.Tracker;
 
 /**
  * @author TinaGVI
- * @since 19.08.2018
+ * @since 11.09.18
  */
 public class StartUI {
     /**
      * Получение данных от пользователя.
      */
-    //private int[] range = new int[] {};
+
     private final Input input;
     /**
      *
@@ -42,7 +42,7 @@ public class StartUI {
         int key;
         do {
             menu.show();
-            key = Integer.valueOf(input.ask("Выберите пункт меню:", menu.getRange()));
+            key = input.ask("Выберите пункт меню:", menu.getRange());
             menu.select(key);
         } while (key != 6);
     }
