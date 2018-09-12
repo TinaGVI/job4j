@@ -1,4 +1,4 @@
-package ru.job4j.input;
+package ru.job4j.tracker.actions.input;
 
 import ru.job4j.exception.MenuOutException;
 

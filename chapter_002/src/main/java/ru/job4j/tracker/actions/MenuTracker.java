@@ -1,9 +1,9 @@
-package ru.job4j.actions;
+package ru.job4j.tracker.actions;
 
 
-        import ru.job4j.stogare.Tracker;
-        import ru.job4j.input.Input;
-        import ru.job4j.model.Item;
+        import ru.job4j.tracker.actions.stogare.Tracker;
+        import ru.job4j.tracker.actions.input.Input;
+        import ru.job4j.tracker.actions.model.Item;
 
         import java.util.ArrayList;
         import java.lang.String;

@@ -1,8 +1,8 @@
 package ru.job4j.tracker;
 
 import org.junit.Test;
-import ru.job4j.model.Item;
-import ru.job4j.stogare.Tracker;
+import ru.job4j.tracker.actions.model.Item;
+import ru.job4j.tracker.actions.stogare.Tracker;
 
 import static org.hamcrest.collection.IsArrayContainingInAnyOrder.arrayContainingInAnyOrder;
 import static org.hamcrest.core.Is.is;

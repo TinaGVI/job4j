@@ -1,4 +1,4 @@
-package ru.job4j.actions;
+package ru.job4j.tracker.actions;
 
 /**
  * @author TinaGVI
