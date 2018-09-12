@@ -3,10 +3,11 @@ package ru.job4j.tracker;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-import ru.job4j.tracker.input.Input;
-import ru.job4j.tracker.input.StubInput;
-import ru.job4j.tracker.model.Item;
-import ru.job4j.tracker.stogare.Tracker;
+import ru.job4j.input.Input;
+import ru.job4j.StartUI;
+import ru.job4j.input.StubInput;
+import ru.job4j.model.Item;
+import ru.job4j.stogare.Tracker;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
