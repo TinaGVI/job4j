@@ -1,10 +1,10 @@
-package ru.job4j.tracker.strategy;
+package ru.job4j.strategy;
 
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-import ru.job4j.tracker.input.StubInput;
-import ru.job4j.tracker.input.ValidateInput;
+import ru.job4j.tracker.actions.input.StubInput;
+import ru.job4j.tracker.actions.input.ValidateInput;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
