@@ -6,6 +6,7 @@ package ru.job4j.search.list;
  * @author TinaGVI
  * @since 10.10.2018
  */
+
 import java.util.ArrayList;
 import java.util.List;
 
