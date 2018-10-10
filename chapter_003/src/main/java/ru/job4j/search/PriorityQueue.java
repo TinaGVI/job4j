@@ -20,15 +20,18 @@ public class PriorityQueue {
      * @param task задача
      */
     public void put(Task task) {
-        if (this.tasks.size() == 0) {
-            this.tasks.add(task);
-        } else {
-            for (int i = 0; i != this.tasks.size(); i++) {
-                if (this.tasks.get(i).getPriority() >= task.getPriority()) {
+        if (this.tasks.size() > 0) {
+            for (int i = 0; i < this.tasks.size(); i++) {
+                if (this.tasks.get(i).getPriority() > task.getPriority()) {
                     this.tasks.add(i, task);
+                    break;
+                } else if (i == this.tasks.size() - 1) {
+                    this.tasks.addLast(task);
                     break;
                 }
             }
+        } else {
+            this.tasks.add(task);
         }
     }
 
