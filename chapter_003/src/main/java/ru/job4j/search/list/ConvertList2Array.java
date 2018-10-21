@@ -7,6 +7,7 @@ package ru.job4j.search.list;
  * @since 08.10.2018
  */
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class ConvertList2Array {
@@ -29,6 +30,16 @@ public class ConvertList2Array {
             }
         }
         return array;
+    }
+
+    public List<Integer> convert(List<int[]> list) {
+        List<Integer> result = new ArrayList<>();
+        for (int[] arr : list) {
+            for (int value : arr) {
+                result.add(value);
+            }
+        }
+        return result;
     }
 }
 
