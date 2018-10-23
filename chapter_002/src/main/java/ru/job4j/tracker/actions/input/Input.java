@@ -1,5 +1,7 @@
 package ru.job4j.tracker.actions.input;
 
+import java.util.List;
+
 public interface Input {
     /**
      * Задаем вопрос пользователю.
@@ -8,5 +10,5 @@ public interface Input {
      * @return String Ответ пользователя.
      */
     String ask(String question);
-    int ask(String question, int[] range);
+    int ask(String question, List<Integer> range);
 }

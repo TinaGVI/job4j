@@ -1,4 +1,4 @@
-package ru.job4j.strategy;
+package ru.job4j.tracker;
 
 import org.junit.After;
 import org.junit.Before;
@@ -8,6 +8,7 @@ import ru.job4j.tracker.actions.input.ValidateInput;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
+import java.util.Arrays;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
@@ -32,7 +33,7 @@ public class ValidateInputTest {
         ValidateInput input = new ValidateInput(
                 new StubInput(new String[] {"invalid", "1"})
         );
-        input.ask("Enter", new int[] {1});
+        input.ask("Enter", Arrays.asList(1));
         assertThat(
                 this.mem.toString(),
                 is(

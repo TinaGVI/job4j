@@ -2,6 +2,8 @@ package ru.job4j.tracker.actions.input;
 
 import ru.job4j.exception.MenuOutException;
 
+import java.util.List;
+
 /**
  * @author TinaGVI
  * @since 19.08.2018
@@ -29,7 +31,7 @@ public class StubInput implements Input {
         return this.value[this.position++];
     }
 
-    public int ask(String question, int[] range) {
+    public int ask(String question, List<Integer> range) {
         int key = Integer.valueOf(this.ask(question));
         boolean exist = false;
         for (int value : range) {

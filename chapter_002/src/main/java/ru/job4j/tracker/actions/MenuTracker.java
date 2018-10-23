@@ -17,24 +17,20 @@ public class MenuTracker {
     private Input input;
     private Tracker tracker;
     private List<UserAction> actions = new ArrayList<>();
-    private int[] range;
+    private List<Integer> range;
 
     public MenuTracker(Input input, Tracker tracker) {
         this.input = input;
         this.tracker = tracker;
     }
 
-    public int[] getRange() {
+    public List<Integer> getRange() {
         return range;
     }
 
     {
         fillActions();
         fillRange();
-    }
-
-    public int getActionsLength() {
-        return this.actions.size();
     }
 
     /**
@@ -52,10 +48,9 @@ public class MenuTracker {
     }
 
     public void fillRange() {
-        range = new int[getActionsLength()];
-        int i = 0;
+        range = new ArrayList<>();
         for (UserAction act : this.actions) {
-            range[i++] = act.key();
+            range.add(act.key());
         }
     }
 

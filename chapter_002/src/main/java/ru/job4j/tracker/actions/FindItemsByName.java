@@ -5,6 +5,7 @@ import ru.job4j.tracker.actions.model.Item;
 import ru.job4j.tracker.actions.stogare.Tracker;
 
 import java.util.Arrays;
+import java.util.List;
 
 /**
  * Класс поиска заявки по имени.
@@ -21,7 +22,7 @@ public class FindItemsByName extends BaseAction {
     public void execute(Input input, Tracker tracker) {
         System.out.println("------------ Поиск заявки по имени --------------");
         String id = input.ask("Введите имя заявки, которую хотите найти:");
-        Item[] items = tracker.findByName(id);
-        System.out.println("------------ Найдена заявка по id  " + Arrays.toString(items) + " -----------");
+        List<Item> items = tracker.findByName(id);
+        System.out.println("------------ Найдена заявка по id  " + items + " -----------");
     }
 }

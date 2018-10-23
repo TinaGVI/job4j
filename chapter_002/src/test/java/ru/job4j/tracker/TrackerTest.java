@@ -4,6 +4,10 @@ import org.junit.Test;
 import ru.job4j.tracker.actions.model.Item;
 import ru.job4j.tracker.actions.stogare.Tracker;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 import static org.hamcrest.collection.IsArrayContainingInAnyOrder.arrayContainingInAnyOrder;
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertArrayEquals;
@@ -21,7 +25,7 @@ public class TrackerTest {
         Tracker tracker = new Tracker();
         Item item = new Item("test1", "testDescription");
         tracker.add(item);
-        assertThat(tracker.findAll()[0], is(item));
+        assertThat(tracker.findAll().get(0), is(item));
     }
 
     @Test
@@ -38,16 +42,16 @@ public class TrackerTest {
     @Test
     public void deleteTest() {
         Tracker tracker = new Tracker();
-        Item[] items = {
-                new Item("item2", "desc2"),
-                new Item("item3", "desc3")
-        };
-        tracker.add(items[0]);
-        tracker.add(items[1]);
-        tracker.delete(items[1].getId());
-        Item[] actual = tracker.findAll();
-        items[0].setId(actual[0].getId());
-        assertThat(actual, arrayContainingInAnyOrder(items[0]));
+        List<Item> items = new ArrayList<>();
+        items.add(new Item("item2", "desc2"));
+        items.add(new Item("item3", "desc3"));
+
+        tracker.add(items.get(0));
+        tracker.add(items.get(1));
+        tracker.delete(items.get(1).getId());
+        List<Item> actual = tracker.findAll();
+        items.get(0).setId(actual.get(0).getId());
+        assertThat(actual, is(items));
     }
 
     @Test
@@ -59,10 +63,9 @@ public class TrackerTest {
         tracker.add(item);
         Item expected = new Item("item5", "desc6");
         expected.setId(item.getId());
-        assertThat(tracker.findAll()[1], is(expected));
+        assertThat(tracker.findAll().get(1), is(expected));
 
     }
-
 
     @Test
     public void findByName() {
@@ -77,8 +80,8 @@ public class TrackerTest {
         expected1.setId(item1.getId());
         Item expected2 = new Item("item20", "desc21");
         expected2.setId(item2.getId());
-        Item[] expected = new Item[]{expected1, expected2};
-        assertArrayEquals(tracker.findByName("item20"), expected);
+        List<Item> expected = Arrays.asList(expected1, expected2);
+        assertThat(tracker.findByName("item20"), is(expected));
 
     }
 

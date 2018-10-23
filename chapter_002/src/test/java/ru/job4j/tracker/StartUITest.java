@@ -50,7 +50,7 @@ public class StartUITest {
         Tracker tracker = new Tracker();
         Input input = new StubInput(new String[]{"0", "ADD", "desc", "6"});
         new StartUI(input, tracker).init();
-        assertThat(tracker.findAll()[0].getName(), is("ADD"));
+        assertThat(tracker.findAll().get(0).getName(), is("ADD"));
     }
 
     @Test
@@ -103,7 +103,7 @@ public class StartUITest {
         Item item = tracker.add(new Item("test FIND_BY_ID", "desc"));
         Input input = new StubInput(new String[]{"4", item.getId(), "6"});
         new StartUI(input, tracker).init();
-        assertThat(tracker.findAll()[0].getName(), is("test FIND_BY_ID"));
+        assertThat(tracker.findAll().get(0).getName(), is("test FIND_BY_ID"));
     }
 
     @Test
@@ -112,6 +112,6 @@ public class StartUITest {
         tracker.add(new Item("test FIND_BY_NAME", "desc"));
         Input input = new StubInput(new String[]{"5", "test FIND_BY_NAME", "6"});
         new StartUI(input, tracker).init();
-        assertThat(tracker.findAll()[0].getName(), is("test FIND_BY_NAME"));
+        assertThat(tracker.findAll().get(0).getName(), is("test FIND_BY_NAME"));
     }
 }
