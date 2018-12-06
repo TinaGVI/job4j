@@ -1,4 +1,4 @@
-package ru.job4j.search.sort;
+package ru.job4j.sort;
 
 
 import java.util.*;

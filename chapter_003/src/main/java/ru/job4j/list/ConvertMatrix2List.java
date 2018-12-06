@@ -1,4 +1,4 @@
-package ru.job4j.search.list;
+package ru.job4j.list;
 
 /**
  * Конвертация двумерного массива в ArrayList.

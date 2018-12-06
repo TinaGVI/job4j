@@ -1,4 +1,4 @@
-package ru.job4j.search.users;
+package ru.job4j.users;
 
 /**
  * Класс преобразования List в Map..
