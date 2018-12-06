@@ -5,6 +5,7 @@ import ru.job4j.tracker.actions.input.Input;
 import ru.job4j.tracker.actions.input.ConsoleInput;
 import ru.job4j.tracker.actions.input.ValidateInput;
 import ru.job4j.tracker.actions.stogare.Tracker;
+import java.util.function.Consumer;
 
 /**
  * @author TinaGVI
@@ -37,12 +38,14 @@ public class StartUI {
      */
     public void init() {
         MenuTracker menu = new MenuTracker(this.input, this.tracker);
+        Consumer<Integer> select = menu::select;
 
         int key;
         do {
             menu.show();
             key = input.ask("Выберите пункт меню:", menu.getRange());
-            menu.select(key);
+         //   menu.select(key);
+            select.accept(key);
         } while (key != 6);
     }
 
